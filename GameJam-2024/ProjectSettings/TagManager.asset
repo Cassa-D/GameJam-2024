@@ -8,6 +8,8 @@ TagManager:
   - Hit
   - Item
   - Ground
+  - Item Destroyer
+  - Item Spawner
   layers:
   - Default
   - TransparentFX
@@ -20,7 +22,7 @@ TagManager:
   - Item
   - Thrown
   - 
-  - 
+  - IgnoreMapCollisions
   - 
   - 
   - 

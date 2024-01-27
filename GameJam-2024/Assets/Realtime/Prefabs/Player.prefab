@@ -46,7 +46,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grabPoint: {fileID: 6406561928165533118}
-  throwForce: 10
   movement: {fileID: 7912492892492100972}
   punchControl: {fileID: 144081641805309414}
 --- !u!135 &7092346897268131204
@@ -68,8 +67,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.93978
-  m_Center: {x: 0, y: 1.0396478, z: 0.7121875}
+  m_Radius: 1.0927764
+  m_Center: {x: 0, y: 0.5283718, z: 0.708486}
 --- !u!1 &3307628439899113293
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,7 +163,7 @@ Transform:
   m_GameObject: {fileID: 4347278782287619271}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.2500007, z: 1}
+  m_LocalPosition: {x: 0, y: 1.201, z: 0.759}
   m_LocalScale: {x: 0.5, y: 0.50000006, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -189,7 +188,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Radius: 1
+  m_Radius: 1.48
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &144081641805309414
 MonoBehaviour:
@@ -203,8 +202,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69593478025421848b5d6d84ba4a39ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
-  punchDelay: 15
 --- !u!1 &4357076033074751559
 GameObject:
   m_ObjectHideFlags: 0
@@ -591,9 +588,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 4131362931002720755}
-  speed: 5
   rotateTransform: {fileID: 945437209067294560}
   CanWalk: 1
+  speed: 5
+  CanRotate: 1
 --- !u!114 &5952378215535551266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -608,9 +606,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 3
   healthBar: {fileID: 100654274237847033}
-  stunTime: 250
   playerColor: {r: 0.9960785, g: 0, b: 0, a: 1}
-  DEBUG_force: 10
 --- !u!114 &3542793255487249086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -694,6 +690,12 @@ MonoBehaviour:
     m_ActionId: f3864f29-4ca2-472f-b5d8-fd95cc9d564d
     m_ActionName: Player/Grab[/ USB Gamepad          /button2,/DragonRise Inc.  
       Generic   USB  Joystick  /button4]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a768245d-969b-48c3-a9fe-e61f8a5d1c03
+    m_ActionName: Player/Dash[/ USB Gamepad          /button3,/DragonRise Inc.  
+      Generic   USB  Joystick  /button3,/DragonRise Inc.   Generic   USB  Joystick 
+      1/button3]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
