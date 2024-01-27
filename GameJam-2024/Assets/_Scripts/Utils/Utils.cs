@@ -5,18 +5,18 @@ namespace Cassa
 {
     public static class Utils
     {
-        public static async Task Delay(MonoBehaviour obj, int delay)
+        public static async Task Delay(MonoBehaviour obj, int delay, bool invert = false)
         {
-            obj.enabled = true;
+            obj.enabled = invert;
             await Task.Delay(delay);
-            obj.enabled = false;
+            obj.enabled = !invert;
         }
         
-        public static async Task Delay(Collider obj, int delay)
+        public static async Task Delay(Collider obj, int delay, bool invert = false)
         {
-            obj.enabled = true;
+            obj.enabled = invert;
             await Task.Delay(delay);
-            obj.enabled = false;
+            obj.enabled = !invert;
         }
     }
 }

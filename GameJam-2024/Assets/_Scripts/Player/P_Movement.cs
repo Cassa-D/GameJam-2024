@@ -1,20 +1,27 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour
+public class P_Movement : MonoBehaviour
 {
     [SerializeField] private Rigidbody rb;
     [SerializeField] private float speed = 5f;
 
     private Vector2 movement;
     
+    [SerializeField] private Transform rotateTransform;
+    
+    public bool CanWalk = true;
+    
     private void FixedUpdate()
-    {   
-        rb.MovePosition(rb.position + new Vector3(movement.x, 0, movement.y) * (speed * Time.fixedDeltaTime));
+    {
+        if (CanWalk)
+        {
+            rb.MovePosition(rb.position + new Vector3(movement.x, 0, movement.y) * (speed * Time.fixedDeltaTime));
+        }
         
         if (movement != Vector2.zero)
         {
-            transform.rotation = Quaternion.LookRotation(new Vector3(movement.x, 0, movement.y));
+            rotateTransform.rotation = Quaternion.LookRotation(new Vector3(movement.x, 0, movement.y));
         }
     }
     

@@ -35,6 +35,8 @@ public class P_PunchControl : MonoBehaviour
     
     public void OnPunch(InputAction.CallbackContext context)
     {
+        if (!enabled) return;
+        
         if (punchTask is { IsCompleted: false })
         {
             return;
@@ -42,7 +44,7 @@ public class P_PunchControl : MonoBehaviour
         
         if (context.started)
         {
-            punchTask = Cassa.Utils.Delay(col, punchDelay);
+            punchTask = Cassa.Utils.Delay(col, punchDelay, true);
         }
     }
 }

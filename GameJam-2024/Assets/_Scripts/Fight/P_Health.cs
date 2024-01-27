@@ -34,10 +34,9 @@ public class P_Health : MonoBehaviour
         
         if (other != null)
         {
-            Debug.Log("Player hit!");
             Vector3 direction = (transform.position - other.position).normalized;
             rb.AddForce(direction * DEBUG_force, ForceMode.Impulse);
-            stunTask = Cassa.Utils.Delay(GetComponent<PlayerMovement>(), stunTime);
+            stunTask = Cassa.Utils.Delay(GetComponent<P_Movement>(), stunTime);
         }
 
         health -= damage;

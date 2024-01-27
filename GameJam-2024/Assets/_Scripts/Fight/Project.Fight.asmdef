@@ -1,0 +1,19 @@
+{
+    "name": "Project.Health",
+    "rootNamespace": "",
+    "references": [
+        "GUID:93a5796179419044793d2fcc2d93e533",
+        "GUID:36cec0986d507b948b75074a97ed6644",
+        "GUID:e09390c7d48a65648b53dce117b24956",
+        "GUID:75469ad4d38634e559750d17036d5f7c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

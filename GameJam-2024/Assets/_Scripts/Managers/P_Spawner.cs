@@ -21,7 +21,6 @@ public class P_Spawner : MonoBehaviour
     
     public void OnSpawn(PlayerInput playerInput)
     {
-        Debug.Log("Spawning player");
         playerInput.transform.SetPositionAndRotation(spawnPoints[spawnIndex].position + new Vector3(0,1,0), spawnPoints[spawnIndex].rotation);
         playerInput.GetComponent<P_Health>().playerColor = playerColors[spawnIndex];
         spawnIndex++;
