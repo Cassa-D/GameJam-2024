@@ -69,7 +69,7 @@ public class Throwable : Movable
           base.OnCollisionEnter(other);
           if (other.gameObject.CompareTag("Player") && Mode == ItemMode.Thrown && other.gameObject != owner)
           {
-               other.gameObject.GetComponent<P_Health>().TakeDamage(Variables.Instance.DefaultThrowableDamage);
+               other.gameObject.GetComponent<P_Health>().TakeDamage(Variables.Instance.DefaultThrowableDamage, transform, damageDealerIndex: owner.GetComponent<P_Health>().playerIndex);
                Destroy(gameObject);
           }
           

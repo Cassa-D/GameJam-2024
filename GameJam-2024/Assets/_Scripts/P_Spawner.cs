@@ -23,8 +23,12 @@ public class P_Spawner : MonoBehaviour
         {
             await Task.Delay(100);
         }
-        playerInput.transform.SetPositionAndRotation(spawnPoints[spawnIndex].position + new Vector3(0,1,0), spawnPoints[spawnIndex].rotation);
-        playerInput.GetComponent<P_Health>().playerColor = Variables.Instance.PlayerColors[spawnIndex];
+        
+        if (playerInput.playerIndex < spawnIndex) return;
+        
+        playerInput.transform.SetPositionAndRotation(spawnPoints[playerInput.playerIndex].position + new Vector3(0,1,0), spawnPoints[playerInput.playerIndex].rotation);
+        playerInput.GetComponent<P_Health>().playerColor = Variables.Instance.PlayerColors[playerInput.playerIndex];
+        playerInput.GetComponent<P_Health>().playerIndex = playerInput.playerIndex;
         spawnIndex++;
     }
 }

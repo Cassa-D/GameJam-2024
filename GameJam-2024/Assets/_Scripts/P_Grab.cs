@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -97,7 +98,7 @@ public class P_Grab : MonoBehaviour
         }
     }
 
-    private void Thrown()
+    private async void Thrown()
     {
         if (grabbedObject != null)
         {
@@ -106,6 +107,8 @@ public class P_Grab : MonoBehaviour
             grabbedObject.GetComponent<Rigidbody>().AddForce(transform.forward * Variables.Instance.ThrowForce, ForceMode.Impulse);
             grabbedObject.GetComponent<Throwable>().Mode = Throwable.ItemMode.Thrown;
             grabbedObject = null;
+
+            await Task.Delay(250);
 
             movement.CanWalk = true;
             punchControl.enabled = true;

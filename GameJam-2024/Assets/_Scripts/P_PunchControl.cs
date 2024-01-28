@@ -17,7 +17,7 @@ public class P_PunchControl : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other.GetComponent<P_Health>().TakeDamage(Variables.Instance.PunchDamage, transform.parent, Variables.Instance.PunchForce);
+            other.GetComponent<P_Health>().TakeDamage(Variables.Instance.PunchDamage, transform.parent, Variables.Instance.PunchForce, GetComponentInParent<P_Health>().playerIndex);
         }
     }
 
