@@ -7,7 +7,9 @@ public class P_Health : MonoBehaviour
 {
     [ProgressBar(0, 3, Segmented = true, ColorGetter = "GetHealthBarColor")]
     [SerializeField] private int health = 3;
-    
+
+    public int playerIndex { get; set; }
+
     private Color GetHealthBarColor()
     {
         switch (health)
@@ -43,7 +45,7 @@ public class P_Health : MonoBehaviour
         healthBar.fillAmount = health / 3f;
     }
 
-    public void TakeDamage(int damage, Transform other = null, float force = 5f)
+    public void TakeDamage(int damage, Transform other = null, float force = 5f, int damageDealerIndex = -1)
     {
         if (stunTask is { IsCompleted: false })
         {
@@ -61,8 +63,27 @@ public class P_Health : MonoBehaviour
 
         if (health <= 0)
         {
-            Debug.Log("Player died!");
-            // Destroy(gameObject);
+            if (damageDealerIndex != -1)
+            {
+                Variables.Instance.Scores[damageDealerIndex]++;
+                Variables.Instance.Deaths[playerIndex]++;
+            }
+            Respawn();
         }
+    }
+
+    public async void Respawn()
+    {
+        // TODO - effects and stuff
+        gameObject.SetActive(false);
+            
+        health = Variables.Instance.PlayerHealth;
+        healthBar.fillAmount = health / 3f;
+            
+        Vector3 spawnPosition = new Vector3(Random.Range(-Variables.Instance.RespawnRange, Variables.Instance.RespawnRange), 0, Random.Range(-Variables.Instance.RespawnRange, Variables.Instance.RespawnRange));
+        transform.position = spawnPosition + Variables.Instance.RespawnOffset;
+        
+        await Task.Delay((int)(Variables.Instance.RespawnTime * 1000));
+        gameObject.SetActive(true);
     }
 }

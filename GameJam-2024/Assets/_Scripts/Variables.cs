@@ -1,3 +1,4 @@
+using System;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -67,4 +68,29 @@ public class Variables : Singleton<Variables>
     [SerializeField]
     private GameObject[] spawnableItems;
     public GameObject[] SpawnableItems => spawnableItems;
+    
+    [BoxGroup("Respawn Infos")]
+    [SerializeField]
+    private float respawnTime = 5f;
+    public float RespawnTime => respawnTime;
+    
+    [BoxGroup("Respawn Infos")]
+    [SerializeField]
+    private float respawnRange = 5f;
+    public float RespawnRange => respawnRange;
+
+    [BoxGroup("Respawn Infos")]
+    [SerializeField]
+    private Vector3 respawnOffset = new Vector3(0, 0);
+    public Vector3 RespawnOffset => respawnOffset;
+    
+    [BoxGroup("Score")]
+    [ShowInInspector, ReadOnly]
+    private int[] scores = new int[4];
+    public int[] Scores => scores;
+    
+    [BoxGroup("Score")]
+    [ShowInInspector, ReadOnly]
+    private int[] deaths = new int[4];
+    public int[] Deaths => deaths;
 }
