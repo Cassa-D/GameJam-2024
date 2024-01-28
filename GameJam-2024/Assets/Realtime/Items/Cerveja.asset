@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 678df4cf95795494e88001f87b06dab1, type: 3}
-  m_Name: AutoSaveConfig
+  m_Script: {fileID: 11500000, guid: e9c7ba233294ba14c9c08aedd99f3aa9, type: 3}
+  m_Name: Cerveja
   m_EditorClassIdentifier: 
-  Enabled: 1
-  Frequency: 5
-  Logging: 1
+  type: 0
+  consumableType: 0
+  consumableValue: 0.5
+  itemPrefab: {fileID: 0}

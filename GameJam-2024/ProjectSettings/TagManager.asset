@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Spawner
+  - Hit
+  - Item
+  - Ground
+  - Item Destroyer
+  - Item Spawner
   layers:
   - Default
   - TransparentFX
@@ -12,11 +18,11 @@ TagManager:
   - Water
   - UI
   - 
+  - Player
+  - Item
+  - Thrown
   - 
-  - 
-  - 
-  - 
-  - 
+  - IgnoreMapCollisions
   - 
   - 
   - 
