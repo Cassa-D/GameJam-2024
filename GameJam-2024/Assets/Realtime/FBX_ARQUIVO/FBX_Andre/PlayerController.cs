@@ -16,13 +16,13 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("IsRunning", false);
     }
 
-    void Update()
+    void FixedUpdate()
     {
         // Receber entrada do teclado
         float deltaX = Input.GetAxis("Horizontal") * speed;
         float deltaY = Input.GetAxis("Vertical") * speed;
 
-        Vector3 movement = new Vector3(deltaX, rb.velocity.y, deltaY);
+        Vector3 movement = new Vector3(deltaX, 0, deltaY);
         movement = Vector3.ClampMagnitude(movement, speed);
 
         // Aplica o movimento ao Rigidbody
@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("IsIdle", false);
 
             // Rotacionar o jogador na direção do movimento
-            Quaternion targetRotation = Quaternion.LookRotation(movement);
+            Quaternion targetRotation = Quaternion.LookRotation(movement.normalized);
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * 10f);
         }
         else
